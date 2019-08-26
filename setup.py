@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="batch_tar",
-    version="0.1",
+    version="0.1.1",
     author='Guanliang Meng',
     author_email='linzhi2012@gmail.com',
     description="To tar/compress files/directories in batch mode.",
