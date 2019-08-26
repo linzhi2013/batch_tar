@@ -1,4 +1,4 @@
-# extractfq
+# batch-tar
 
 ## 1 Introduction
 
@@ -6,47 +6,50 @@
 
 ## 2 Installation
 
-    pip install extractfq
+    pip install batch-tar
 
-There will be a command `extractfq` created under the same directory as your `pip` command.
+There will be a command `batch_tar` created under the same directory as your `pip` command.
 
 ## 3 Usage
 
-    $ extractfq
-    usage: extractfq.py [-h] [-fq1 <str>] [-fq2 <str>] [-outfq1 <str>]
-                        [-outfq2 <str>] [-size_required <float>] [-rl <int>] [-gz]
-                        [-cache_num <int>]
+  $ batch_tar
 
-    Extract some fastq reads from the beginning of the files. Author: Guanliang
-    Meng, see https://github.com/linzhi2013/extractfq. This script is part of the
-    package `MitoZ`, when you use the script in your work, please cite: MitoZ: A
-    toolkit for mitochondrial genome assembly, annotation and visualization with
-    NGS data. Guangliang Meng, Yiyuan Li, Chentao Yang, Shanlin Liu (in
-    manuscript)
+  usage: batch_tar [-h] [-l <file>] [-L [<str> [<str> ...]]]
+                   [-workdir <directory>] [-tarfile <str>] [-regex <str>]
+                   [-compress {z,j}] [-rm] [-p] [--version]
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -fq1 <str>            input fastq 1 file
-      -fq2 <str>            input fastq 2 file
-      -outfq1 <str>         output fastq 1 file
-      -outfq2 <str>         output fastq 2 file
-      -size_required <float>
-                            size required in Gigabase. [3]
-      -rl <int>             read length required. discard the smaller ones, and
-                            cut the longer ones to this length [None]
-      -gz                   gzip output. [False]
-      -cache_num <int>      the cache number of reads before writing to the file,
-                            to speed up. the larger of cache_num, the more memory
-                            (default is ca. 2G) will be used. [1500000]
+  To tar/compress files/directories in batch mode. By Guanliang Meng, see
+  https://github.com/linzhi2013/batch_tar. version: 0.1
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    -l <file>             path list to be dealed with
+    -L [<str> [<str> ...]]
+                          basenames of files/subdirecotries in `-workdir`. If
+                          `-workdir` was not specified, `-workdir ./` is
+                          assumed.
+    -workdir <directory>  working directory. must specify `-regex` together
+    -tarfile <str>        group all the files/subdirecotries into one file.tar
+                          (.bz2 or .gz). only works with `-L` and `-workdir`
+    -regex <str>          deal with only the files/subdirecotries in `-l` or
+                          `-workdir` whose basenames match the regular
+                          expression
+    -compress {z,j}       For the subdirecotries, when executing `tar -cf`, also
+                          add parameter `z` or `j` for `tar` command. The files
+                          will always be gzipped if this option was not set.
+    -rm                   delete the files/subdirecotries when tar finishs.
+    -p                    only print out the commands, not run. then you can use
+                          qsub-sge.pl to submit multiple jobs. Useful to handle
+                          a lot of files because I run in single thread mode
+                          only! [False]
+    --version             show program's version number and exit
 
 ## Author
 Guanliang MENG
 
 ## Citation
-This script is part of the package `MitoZ`, when you use the script in your work, please cite:
 
-    Guanliang Meng, Yiyuan Li, Chentao Yang, Shanlin Liu. MitoZ: A toolkit for mitochondrial genome assembly, annotation and visualization; doi: https://doi.org/10.1101/489955
-
+Currently I have no plan for publishing this script.
 
 
 
