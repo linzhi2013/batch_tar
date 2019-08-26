@@ -2,7 +2,7 @@
 
 ## 1 Introduction
 
-`batch-tar` is a tool to extract some fastq reads from the beginning of the files.
+`batch-tar` is a tool to tar (and compress) files or directories in batch mode.
 
 ## 2 Installation
 
