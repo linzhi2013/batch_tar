@@ -51,7 +51,7 @@ Guanliang MENG
 
 Currently I have no plan for publishing this script.
 
-
+**However, if you use this program in your analysis, or you "steal" the idea/codes of this program into your script, I should be one of the co-authors in your publication!!!**
 
 
 
